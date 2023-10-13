@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if message == 'success' %}
+        <h3> Candidato creado con exito </h3>
+    {% else %}
+        <h3> Candidato no se pudo registrar porque ya existe </h3>
+    {% endif %}
+
+    
+{% endblock %}

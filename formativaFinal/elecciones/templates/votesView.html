@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Votos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombe completo</th>
+                <th>Votar</th>
+            </tr>
+        </thead>
+
+        {% for candidato in candidatos %}
+        <tbody>
+            <tr>
+                <td>{{ candidato.nombre }} {{ candidato.apellido }}</td>
+                <td>
+                    <form action="{% url 'voteDone' %}", method="POST">
+                        {% csrf_token%}
+                        <input type="text" name="nombre" value="{{candidato.nombre}}" hidden>
+                        <input type="text" name="apellido" value="{{candidato.apellido}}" hidden>
+                        <button class="btn btn-primary">+ Voto</button>
+                    </form>
+                </td>
+            </tr>
+
+        </tbody>
+        {% endfor %}
+
+        
+    </table>
+</div>
+
+{% endblock %}

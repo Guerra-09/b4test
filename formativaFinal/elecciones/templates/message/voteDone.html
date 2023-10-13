@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if vote == 'success' %}
+        <h3> Voto hecho con exito a {{ candidatoNombre }} {{candidatoApellido}} </h3>
+    {% else  %}
+        <h3> ERROR AL VOTAR </h3>
+    {% endif %}
+{% endblock %}
